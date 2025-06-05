@@ -1,9 +1,14 @@
-import express from "express"; // tu importe le framework express
+import express from "express";
+// tu importe le framework express
 import mongoose from "mongoose";
 // dotenv on l'appelle avec ca
+import dotenv from "dotenv";
 dotenv.config();
 
 const app = express(); // Tu initialises une application Express. cette variable app qui te permet de définir des routes (GET, POST, etc.), ajouter du middleware,
+app.get("/", (req, res) => {
+    res.send("Serveur OK");
+});
 mongoose
     .connect(process.env.MONGO)
     .then(() => {
