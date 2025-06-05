@@ -4,7 +4,8 @@
 
 @layer base {
     h1 span {
-        font-family: "WDXL Lubrifont TC", sans-serif;
+        font-family: "Edu NSW ACT Cursive", cursive;
+        font-size: 16px;
     }
     body {
         background-color: rgba(241, 245, 241);
