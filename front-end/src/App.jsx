@@ -1,10 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Profile from "./pages/Profile";
-import Signin from "./pages/Signin";
-import Signup from "./pages/Signup";
+import Acceuil from "./pages/Acceuil";
+import Apropos from "./pages/Apropos";
+import Connexion from "./pages/Connexion";
+import Deconnexion from "./pages/Deconnexion";
+import Panier from "./pages/Panier";
+
 import Header from "./components/Header";
 
 function App() {
@@ -12,11 +13,11 @@ function App() {
         <BrowserRouter>
             <Header />
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/sign-in" element={<Signin />} />
-                <Route path="/sign-up" element={<Signup />} />
-                <Route path="/profile" element={<Profile />} />
-                <Route path="/about" element={<About />} />
+                <Route path="/" element={<Acceuil />} />
+                <Route path="/apropos" element={<Apropos />} />
+                <Route path="/connexion" element={<Connexion />} />
+                <Route path="/deconnexion" element={<Deconnexion />} />
+                <Route path="/panier" element={<Panier />} />
             </Routes>
         </BrowserRouter>
     );

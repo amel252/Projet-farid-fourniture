@@ -1,4 +1,4 @@
 function Connexion() {
-    return <div>AConnexion</div>;
+    return <div>Connexion</div>;
 }
 export default Connexion;

@@ -1,4 +1,4 @@
 function Acceuil() {
-    return <div>A cceuil</div>;
+    return <div>Acceuil</div>;
 }
 export default Acceuil;
