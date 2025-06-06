@@ -3,14 +3,16 @@ import express from "express";
 import mongoose from "mongoose";
 // dotenv on l'appelle avec ca
 import dotenv from "dotenv";
-import userRouter from "./routes/user.route";
-
 dotenv.config();
 
+import userRouter from "./routes/user.route";
+import authRouter from "./routes/auth.route.js";
+
 const app = express(); // Tu initialises une application Express. cette variable app qui te permet de définir des routes (GET, POST, etc.), ajouter du middleware,
-app.get("/", (req, res) => {
-    res.send("Serveur OK");
-});
+app.use(express.json());
+// app.get("/", (req, res) => {
+//     res.send("Serveur OK");
+// });
 mongoose
     .connect(process.env.MONGO)
     .then(() => {
@@ -25,3 +27,4 @@ app.listen(3000, () => {
 });
 // import des routes
 app.use("/api/user", userRouter);
+app.use("/api/auth", authRouter);
