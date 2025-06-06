@@ -34,7 +34,7 @@ export default function Header() {
                         <Link to="/connexion">Connexion</Link>
                     </li>
                     <li className="hidden sm:inline text-slate-700 hover:underline">
-                        <Link to="/deconnexion">Deconnexion</Link>
+                        <Link to="/inscription">Inscription</Link>
                     </li>
                     <li className="hidden sm:inline text-slate-700 hover:underline">
                         <Link to="/panier">Panier</Link>
