@@ -1,6 +1,7 @@
 import express from "express";
 // tu importe le framework express
 import mongoose from "mongoose";
+import cookieParser from "cookie-parser";
 // dotenv on l'appelle avec ca
 import dotenv from "dotenv";
 dotenv.config();
@@ -10,6 +11,7 @@ import authRouter from "./routes/auth.route.js";
 
 const app = express(); // Tu initialises une application Express. cette variable app qui te permet de définir des routes (GET, POST, etc.), ajouter du middleware,
 app.use(express.json());
+app.use(cookieParser());
 // app.get("/", (req, res) => {
 //     res.send("Serveur OK");
 // });
