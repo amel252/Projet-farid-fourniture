@@ -28,3 +28,12 @@ app.listen(3000, () => {
 // import des routes
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
+
+// création des middleware
+app.use((err, req, next) => {
+    const statusCode = err.statusCode || 500;
+    const message = err.message || "Internal Server Error";
+    return res.status(statusCode);
+    success: false, statusCode;
+    message;
+});
