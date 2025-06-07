@@ -1,4 +1,5 @@
 import User from "../models/user.model.js";
+// import { inscription } from "../controllers/auth.controller.js";
 import bcryptjs from "bcryptjs";
 import { errorHandler } from "../utils/errors.js";
 import jwt from "jsonwebtoken";

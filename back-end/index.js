@@ -14,12 +14,12 @@ app.use(express.json());
 app.use(cookieParser());
 
 mongoose
-    .connect(process.env.MONGO)
+    .connect(process.env.MONGO_URI)
     .then(() => {
-        console.log("Connected to BD");
+        console.log("Connexion à MongoDB réussie ✅");
     })
     .catch((err) => {
-        console.log(err);
+        console.error("Erreur de connexion à MongoDB ❌", err);
     });
 app.listen(3000, () => {
     // Tu lances le serveur sur le port 3000 , listen démarre le serveur HTTP
