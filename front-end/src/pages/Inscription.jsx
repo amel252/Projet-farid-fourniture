@@ -1,4 +1,5 @@
-import { Link, useState } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 export default function Inscription() {
     const navigate = useNavigate();
     // pour rediriger l'utilisateur
@@ -17,7 +18,7 @@ export default function Inscription() {
         e.preventDefault();
         try {
             setLoading(true);
-            const res = await fetch("/api/auth/signup", {
+            const res = await fetch("/api/auth/inscription", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -46,7 +47,7 @@ export default function Inscription() {
             <h1 className="text-3xl text-center font-semibold my-7">
                 Inscription
             </h1>
-            <form on submit={handleSubmit} className="flex flex-col gap-4">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                 <input
                     type="text"
                     className="border p-3 rounded-lg"

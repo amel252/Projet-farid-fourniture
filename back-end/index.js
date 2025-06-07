@@ -6,15 +6,13 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 dotenv.config();
 
-import userRouter from "./routes/user.route";
+import userRouter from "./routes/user.route.js";
 import authRouter from "./routes/auth.route.js";
 
 const app = express(); // Tu initialises une application Express. cette variable app qui te permet de définir des routes (GET, POST, etc.), ajouter du middleware,
 app.use(express.json());
 app.use(cookieParser());
-// app.get("/", (req, res) => {
-//     res.send("Serveur OK");
-// });
+
 mongoose
     .connect(process.env.MONGO)
     .then(() => {
@@ -35,7 +33,8 @@ app.use("/api/auth", authRouter);
 app.use((err, req, next) => {
     const statusCode = err.statusCode || 500;
     const message = err.message || "Internal Server Error";
-    return res.status(statusCode);
-    success: false, statusCode;
-    message;
+    res.status(statusCode).json({ success: false, message });
+    // return res.status(statusCode);
+    // success: false, statusCode;
+    // message;
 });
