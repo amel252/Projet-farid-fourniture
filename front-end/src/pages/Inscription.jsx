@@ -1,3 +1,4 @@
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 export default function Inscription() {
@@ -33,10 +34,10 @@ export default function Inscription() {
                 setError(data.message);
                 return;
             }
-            // si ca se passe bien l'utilisateur est rediriger vers la page sign-in (connexion)
+            // si ca se passe bien l'utilisateur est rediriger vers la page connexion (connexion)
             setLoading(false);
             setError(null);
-            navigate("/sign-in");
+            navigate("/connexion");
         } catch (error) {
             setLoading(false);
             setError(error.message);
