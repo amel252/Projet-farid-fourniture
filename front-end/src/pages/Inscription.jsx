@@ -77,7 +77,7 @@ export default function Inscription() {
             </form>
             <div className="flex gap-2 mt-5">
                 <p>Avez vous déja un compte ?</p>
-                <Link to={"/inscription"}>
+                <Link to={"/connexion"}>
                     <span className="text-blue-700">Connectez-vous</span>
                 </Link>
             </div>

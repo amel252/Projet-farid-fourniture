@@ -7,12 +7,17 @@ import jwt from "jsonwebtoken";
 // une fonction pour récuperer les données ecrites , hasher le password
 export const inscription = async (req, res, next) => {
     const { username, email, password } = req.body;
-    const hashedPassword = bcryptjs.hashSync(password, 10);
-    const newUser = new User({ username, email, password: hashedPassword });
+
     try {
-        res.status(201).json("Inscription reussie");
+        const hashedPassword = bcryptjs.hashSync(password, 10);
+        const newUser = new User({ username, email, password: hashedPassword });
+        // ****** chat gpt : sauvegarde en base
+        await newUser.save();
+        // chatgpt
+        res.status(201).json({ success: true, message: "Inscription réussie" });
     } catch (error) {
-        next(error);
+        // chatgpt
+        next(errorHandler(500, "Erreur lors de l'inscription"));
     }
 };
 export const connexion = async (req, res, next) => {
@@ -31,7 +36,7 @@ export const connexion = async (req, res, next) => {
             validUser.password
         );
         if (!validPassword)
-            return next(errorHandler(404, "Faux mon de passe "));
+            return next(errorHandler(404, "Faux mot de passe "));
 
         // creation de token pour la connexion
         const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET);
